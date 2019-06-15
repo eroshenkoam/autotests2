@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.8.0"
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: 'io.qameta.allure'
+
+group 'io.eroshenkoam.autotests'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+allure {
+    
+    autoconfigure = true
+    version = '2.12.1'
+
+    useJUnit4 {
+        version = '2.12.1'
+    }
+
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'io.qameta.allure', name: 'allure-selenide', version: '2.12.1'
+    testCompile group: 'com.codeborne', name: 'selenide', version: '5.2.3'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
